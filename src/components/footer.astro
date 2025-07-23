@@ -1,34 +1,52 @@
 ---
+// src/components/footer.astro
 import '../styles/footer.css';
 ---
 
-
 <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-column about">
-      <a href="/" class="footer-logo">CABS</a>
+  <div class="footer-container">
+    <div class="footer-column footer-about">
+      <a href="/" class="footer-logo">
+        <i class="fas fa-stethoscope"></i>
+        CABS
+      </a>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+        CABS is a modern clinic booking platform, connecting patients with trusted doctors for easy and hassle-free appointments.
       </p>
     </div>
-    <div class="footer-column links">
+
+    <div class="footer-column footer-links">
       <h3>Company</h3>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/about">About us</a></li>
-        <li><a href="/contact">Delivery</a></li>
-        <li><a href="/privacy">Privacy policy</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
       </ul>
     </div>
-    <div class="footer-column contact">
+
+    <div class="footer-column footer-contact">
       <h3>Get in Touch</h3>
       <ul>
-        <li>‪+1-212-456-7890‬</li>
-        <li>greatstackdev@gmail.com</li>
+        <li><i class="fas fa-phone-alt"></i> 0712345678</li>
+        <li><i class="fas fa-envelope"></i> clinic@gmail.com</li>
+        <li><i class="fas fa-map-marker-alt"></i> 123 Clinic Street, City</li>
       </ul>
     </div>
+
+    <div class="footer-column footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
   </div>
+
   <div class="footer-bottom">
-    <p>&copy; 2024 CABS. All Right Reserved.</p>
+    <p>&copy; 2024 CABS. All Rights Reserved.</p>
   </div>
 </footer>
+
+
