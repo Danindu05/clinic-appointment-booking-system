@@ -1,0 +1,65 @@
+---
+import "../styles/register.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="/styles/register.css" />
+    <!-- Load your single Firebase helper module -->
+    <script type="module" src="/firebase.js"></script>
+  </head>
+  <body>
+    <main class="form-container">
+      <h1>Register as a Patient</h1>
+      <form id="register-form">
+        <input type="text" name="name"       placeholder="Full Name"      required />
+        <input type="email" name="email"     placeholder="Email"          required />
+        <input type="tel" name="phone"       placeholder="Phone Number"   required />
+        <input type="date" name="dob"        placeholder="Date of Birth"  required />
+        <select name="gender" required>
+          <option value="">Select Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+        <textarea name="medicalNotes" placeholder="Medical Notes (optional)"></textarea>
+        <button type="submit">Register</button>
+      </form>
+      <p id="success" class="success" style="display: none;">
+        Registered successfully!
+      </p>
+    </main>
+
+    <script type="module">
+      import { registerPatient } from '/firebase.js';
+
+      const form    = document.getElementById("register-form");
+      const success = document.getElementById("success");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+          name:          form.name.value.trim(),
+          email:         form.email.value.trim(),
+          phone:         form.phone.value.trim(),
+          dob:           form.dob.value,
+          gender:        form.gender.value,
+          medicalNotes:  form.medicalNotes.value.trim() || "None",
+          role:          "patient"
+        };
+
+        try {
+          await registerPatient(data);
+          success.style.display = "block";
+          form.reset();
+        } catch (err) {
+          alert("Error registering: " + err.message);
+          console.error(err);
+        }
+      });
+    </script>
+  </body>
+</html>

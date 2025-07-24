@@ -60,6 +60,7 @@ body {
   align-items: center;
   padding: 4rem 2rem;
   gap: 2rem;
+  height: 90vh;
 }
 .hero-text {
   flex: 1 1 300px;
